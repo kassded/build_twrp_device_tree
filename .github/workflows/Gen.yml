@@ -34,12 +34,13 @@ jobs:
         
       - name: 下载
         run: | 
+          mkdir out
           wget ${{ github.event.inputs.IMG }}
           ls
         
       - name: 跑
         run: |
-          mkdir out
+          
           python3 -m twrpdtgen -o ./out/ *.img
           
       - name: 打压缩包
