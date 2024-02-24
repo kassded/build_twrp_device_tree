@@ -33,15 +33,12 @@ jobs:
         run: pip3 install -r requirements.txt
         
       - name: 下载
-        run: | 
-          mkdir out
-          wget ${{ github.event.inputs.IMG }}
-          ls
+        run: wget ${{ github.event.inputs.IMG }}
         
       - name: 跑
         run: |
-          
-          python3 -m twrpdtgen -o out/ *.img
+          mkdir out
+          python3 -m twrpdtgen -o ./out/ *.img
           
       - name: 打压缩包
         run: |
