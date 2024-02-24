@@ -33,7 +33,9 @@ jobs:
         run: pip3 install -r requirements.txt
         
       - name: 下载
-        run: wget ${{ github.event.inputs.IMG }}
+        run: | 
+          wget ${{ github.event.inputs.IMG }}
+          ls
         
       - name: 跑
         run: |
